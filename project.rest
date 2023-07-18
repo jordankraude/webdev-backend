@@ -1,0 +1,72 @@
+###
+GET http://localhost:8000/store
+
+
+###
+GET http://localhost:8000/store/64712c98abd05a3be5fa49c0
+
+
+###
+POST http://localhost:8000/store HTTP/1.1
+content-type:application/json
+
+{"itemName": "Curry Blocks", "itemCost": "6.99", "itemQuantityInStock": "200", "vendorID": "JP011", "vendorLocation": "Tokyo, Japan", "itemImagePath": "...", "itemAlt": "curry blocks"}
+
+
+###
+PUT http://localhost:8000/store/64712c98abd05a3be5fa49c0
+content-type: application/json
+
+{"itemName": "Curry Blocks", "itemCost": "7.99", "itemQuantityInStock": "500", "vendorID": "JP011", "vendorLocation": "Tokyo, Japan", "itemImagePath": "...", "itemAlt": "curry blocks"}
+
+
+###
+DELETE http://localhost:8000/store/64712f76abd05a3be5fa49c2
+
+
+
+
+
+
+
+###
+GET https://web-services-mdu8.onrender.com/store
+
+
+###
+POST https://web-services-mdu8.onrender.com/store
+content-type:application/json
+
+{"itemName": "curry blocks", "itemCost": "5.99", "itemQuantityInStock": "100", "vendorID": "JP011", "vendorLocation": "Tokyo, Japan", "itemImagePath": "...", "itemAlt": "curry blocks"}
+
+###
+PUT https://web-services-mdu8.onrender.com/store/646d82d76ade063b44f94af4 HTTP/1.1
+content-type: application/json
+
+{"itemName": "curry blocks", "itemCost": "5.99", "itemQuantityInStock": "200", "vendorID": "JP011", "vendorLocation": "Tokyo, Japan", "itemImagePath": "...", "itemAlt": "curry blocks"}
+
+###
+DELETE https://web-services-mdu8.onrender.com/store/646d82d76ade063b44f94af4 HTTP/1.1
+
+###
+https://web-services-mdu8.onrender.com/api-docs
+
+###
+
+POST http://localhost:8000/game HTTP/1.1
+content-type:application/json
+
+{"gameName": "1066", "gameSWFPath": "games/swfFiles/1066-45949cba.swf", "gameThumbnailPath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3GQhRUS2BSBLgXHskU3iBHT6qswseZCSBw8k70_OyjA&s", "gameAlt": "1066 Thumbnail"}
+
+###
+POST http://localhost:8000/login HTTP/1.1
+content-type:application/json
+
+{"userLoginName": "Jk1103269", "userPassword": "Pokemoncards1", "userEmail": "jordankraudetp@gmail.com", "userPhoneNumber": "2094952253"}
+
+
+###
+POST http://localhost:8000/store HTTP/1.1
+content-type:application/json
+
+{"itemName": "Ski Jacket", "itemCost": "20.00", "itemQuantityInStock": "1", "vendorID": "N/A", "vendorLocation": "Rexburg, Idaho", "itemImagePath": "...", "itemAlt": "Ski Jacket"}
