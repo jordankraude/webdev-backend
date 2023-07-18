@@ -5,7 +5,7 @@ const doc = {
     title: 'My API',
     description: 'Store Api'
   },
-  host: 'storeproject.onrender.com',
+  host: 'https://portfolioapi-gsh3.onrender.com',
   schemes: ['https']
 };
 
