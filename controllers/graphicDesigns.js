@@ -49,15 +49,17 @@ const getAllGraphics = async (req, res, next) => {
       if (!req.body.graphicName || !req.body.graphicSummary || !req.body.graphicAlt || !req.file) {
         throw new Error("Empty Content or Missing File");
       }
+      console.log(req.file)
   
       // Read the PDF file
       const pdfData = req.file.buffer;
+      console.log(pdfData)
   
       const graphic = {
         graphicName: req.body.graphicName,
-        graphicURL: pdfData, // Use the binary data of the PDF as graphicURL
         graphicSummary: req.body.graphicSummary,
-        graphicAlt: req.body.graphicAlt
+        graphicAlt: req.body.graphicAlt,
+        graphicURL: pdfData
       };
   
       const db = mongodb.getDb().db('portfolio');
@@ -81,12 +83,12 @@ const getAllGraphics = async (req, res, next) => {
       }
 
       const pdfData = req.file.buffer;
-      
+
       const graphic = {
         graphicName: req.body.graphicName,
-        graphicURL: pdfData, // Use the binary data of the PDF as graphicURL
         graphicSummary: req.body.graphicSummary,
-        graphicAlt: req.body.graphicAlt
+        graphicAlt: req.body.graphicAlt,
+        graphicURL: pdfData
       };
   
     const userId = new UserId (req.params.id)
