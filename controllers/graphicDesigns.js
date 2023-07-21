@@ -59,17 +59,13 @@ const getAllGraphics = async (req, res, next) => {
         graphicName: req.body.graphicName,
         graphicSummary: req.body.graphicSummary,
         graphicAlt: req.body.graphicAlt,
-        graphicURL: pdfData
+        pdfFile: pdfData
       };
   
       const db = mongodb.getDb().db('portfolio');
       const result = await db.collection('graphicDesigns').insertOne(graphic);
   
-      if (result.acknowledged) {
-        res.status(201).json({ message: "Graphic created successfully", graphicId: result.insertedId });
-      } else {
-        throw new Error("Unable to insert graphic");
-      }
+      res.status(201).json({ message: "Graphic created successfully", graphicId: result.insertedId });
     } catch (error) {
       console.error("Error creating graphic:", error);
       res.status(500).json({ message: "Your request was not able to be processed" });
@@ -88,7 +84,7 @@ const getAllGraphics = async (req, res, next) => {
         graphicName: req.body.graphicName,
         graphicSummary: req.body.graphicSummary,
         graphicAlt: req.body.graphicAlt,
-        graphicURL: pdfData
+        pdfFile: pdfData
       };
   
     const userId = new UserId (req.params.id)
