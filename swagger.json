@@ -1,12 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Store Api",
+    "title": "portfolio-api",
+    "description": "portfolio API",
     "version": "1.0.0"
   },
   "host": "portfolioapi-gsh3.onrender.com",
-  "basePath": "/",
   "schemes": [
     "https"
   ],
@@ -564,6 +563,44 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/contact/": {
+      "post": {
+        "tags": ["Contact"],
+        "summary": "Send a contact form submission to your email",
+        "operationId": "sendContactForm",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "contactForm",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Internal Server Error"

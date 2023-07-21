@@ -6,5 +6,6 @@ router.use('/graphicDesign', require('./graphicDesigns'))
 router.use('/store', require('./store'))
 router.use('/game', require('./game'))
 router.use('/login', require('./login'))
+// router.use('/contact', require('./email'))
 
 module.exports = router;

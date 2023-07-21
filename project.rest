@@ -3,7 +3,7 @@ GET http://localhost:8000/api-docs
 
 
 ###
-GET http://localhost:8000/store/64712c98abd05a3be5fa49c0
+GET http://localhost:8000/api-docs
 
 
 ###
