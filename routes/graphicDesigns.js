@@ -4,7 +4,7 @@ const contactsController = require('../controllers/graphicDesigns');
 const multer = require('multer');
 
 // Configure multer to handle the file upload
-const upload = multer({ dest: 'uploads/' })
+const upload = multer()
 
 router.get('/',  contactsController.getAllGraphics);
 router.get('/:id',  contactsController.getGraphic);
