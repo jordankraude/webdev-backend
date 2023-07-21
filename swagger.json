@@ -18,6 +18,139 @@
         "responses": {}
       }
     },
+    "/graphicDesign/": {
+      "get": {
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "graphicName",
+            "in": "formData",
+            "type": "string",
+            "example": "any"
+          },
+          {
+            "name": "graphicSummary",
+            "in": "formData",
+            "type": "string",
+            "example": "any"
+          },
+          {
+            "name": "graphicAlt",
+            "in": "formData",
+            "type": "string",
+            "example": "any"
+          },
+          {
+            "name": "pdfFile",
+            "in": "formData",
+            "type": "file"
+          }
+        ],
+        "consumes": ["multipart/form-data"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/graphicDesign/{id}": {
+      "get": {
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "graphicName",
+            "in": "formData",
+            "type": "string",
+            "example": "any"
+          },
+          {
+            "name": "graphicSummary",
+            "in": "formData",
+            "type": "string",
+            "example": "any"
+          },
+          {
+            "name": "graphicAlt",
+            "in": "formData",
+            "type": "string",
+            "example": "any"
+          },
+          {
+            "name": "pdfFile",
+            "in": "formData",
+            "type": "file"
+          }
+        ],
+        "consumes": ["multipart/form-data"],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/store/": {
       "get": {
         "description": "",

@@ -108,11 +108,11 @@ const updateGame = async (req, res, next) => {
 
   const deleteGame = async (req, res, next) => {
     try{
-    const userId = new UserId(req.params.id);
+    const gameId = new UserId(req.params.id);
     if (!UserId.isValid(req.params.id)) {
       throw new Error("Invalid ID")
      }
-    const result = await mongodb.getDb().db('portfolio').collection('game').deleteOne({ _id: userId }, true);
+    const result = await mongodb.getDb().db('portfolio').collection('game').deleteOne({ _id: gameId }, true);
     console.log(result);
     if (result.deletedCount > 0) {
       res.status(204).send();
