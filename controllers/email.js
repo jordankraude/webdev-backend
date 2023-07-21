@@ -63,7 +63,7 @@ async function sendEmailUsingOAuth(req, res) {
       service: 'gmail',
       auth: {
         type: 'OAuth2',
-        user: 'your-email@example.com',
+        user: 'jordankraudetp@gmail.com',
         clientId: clientId,
         clientSecret: clientSecret,
         refreshToken: oAuth2Client.credentials.refresh_token,
