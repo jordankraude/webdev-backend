@@ -73,41 +73,42 @@ const getAllGraphics = async (req, res, next) => {
   };
   
   const updateGraphic = async (req, res, next) => {
-    try{
-      if (!req.body.graphicName  || !req.body.graphicSummary || !req.body.graphicAlt || !req.file){
-        throw new Error("Empty Content")
+    try {
+      if (!req.body.graphicName || !req.body.graphicSummary || !req.body.graphicAlt || !req.file) {
+        throw new Error("Empty Content or Missing File");
       }
-
+  
       const pdfData = req.file.buffer;
-
+  
       const graphic = {
         graphicName: req.body.graphicName,
         graphicSummary: req.body.graphicSummary,
         graphicAlt: req.body.graphicAlt,
-        pdfFile: pdfData
+        pdfFile: pdfData,
       };
   
-    const graphicId = new UserId (req.params.id)
-    if (!graphicId.isValid(req.params.id)) {
-      throw new Error("Invalid ID")
+      const graphicId = new UserId(req.params.id);
+      if (!graphicId.isValid(req.params.id)) {
+        throw new Error("Invalid ID");
       }
   
-    const result = await mongodb.getDb().db('portfolio').collection('graphicDesigns').replaceOne({_id: graphicId}, graphic);
-    console.log(result);
-    if (result.modifiedCount > 0) {
-      res.status(204).send();
-    } 
-    else {
-      res.status(500).json(result.error)}
-    }
-    catch(error) {
-    
-        res.status(500).json({message : "Your request was not able to be processed"})
-        
-         
-        
-        }
+      const result = await mongodb
+        .getDb()
+        .db('portfolio')
+        .collection('graphicDesigns')
+        .replaceOne({ _id: graphicId }, graphic);
+  
+      console.log(result);
+      if (result.modifiedCount === 1) {
+        res.status(204).send();
+      } else {
+        res.status(500).json({ message: "Failed to update graphic design" });
       }
+    } catch (error) {
+      console.error("Error updating graphic design:", error);
+      res.status(500).json({ message: "Your request was not able to be processed" });
+    }
+  };
   
   
     const deleteGraphic = async (req, res, next) => {
