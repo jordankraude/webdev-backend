@@ -45,65 +45,61 @@ const getGame = async (req, res, next) => {
 }
 
 const createNewGame = async (req, res, next) => {
-  try{
-  if (!req.body.gameName || !req.body.gameSWFPath || !req.body.gameThumbnailPath || !req.body.gameAlt){
-    throw new Error("Empty Content")
-  }
-  const game = {
-    gameName: req.body.gameName,
-    gameSWFPath: req.body.gameSWFPath,
-    gameThumbnailPath: req.body.gameThumbnailPath,
-    gameAlt: req.body.gameAlt}
+  try {
+    if (!req.body.gameName || !req.body.gameThumbnailPath || !req.body.gameAlt || !req.files || !req.files.gameSWFFile) {
+      throw new Error("Invalid Form Data");
+    }
 
-  const result = await mongodb.getDb().db('portfolio').collection('game').insertOne(game);
-  console.log(result);
-  if (result.acknowledged) {
-    res.status(201).json(result);
-  } 
-  else {
-    res.status(500).json(result.error)}
-}
-catch(error) {
-  
-  res.status(500).json({message : "Your request was not able to be processed"})
-  
-   
-  
+    const game = {
+      gameName: req.body.gameName,
+      gameThumbnailPath: req.body.gameThumbnailPath,
+      gameAlt: req.body.gameAlt,
+      gameSWFData: req.files.gameSWFFile.data
+    };
+
+    const result = await mongodb.getDb().db('portfolio').collection('game').insertOne(game);
+    console.log(result);
+
+    if (result.acknowledged) {
+      res.status(201).json(result);
+    } else {
+      res.status(500).json(result.error);
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Your request was not able to be processed" });
   }
-}
+};
 
 const updateGame = async (req, res, next) => {
-  try{
-    if (!req.body.gameName || !req.body.gameSWFPath || !req.body.gameThumbnailPath || !req.body.gameAlt){
-      throw new Error("Empty Content")
+  try {
+    if (!req.body.gameName || !req.body.gameThumbnailPath || !req.body.gameAlt || !req.files || !req.files.gameSWFFile) {
+      throw new Error("Invalid Form Data");
     }
+
+    const userId = new UserId(req.params.id);
+    if (!UserId.isValid(req.params.id)) {
+      throw new Error("Invalid ID");
+    }
+
     const game = {
-        gameName: req.body.gameName,
-        gameSWFPath: req.body.gameSWFPath,
-        gameThumbnailPath: req.body.gameThumbnailPath,
-        gameAlt: req.body.gameAlt}
+      gameName: req.body.gameName,
+      gameThumbnailPath: req.body.gameThumbnailPath,
+      gameAlt: req.body.gameAlt,
+      gameSWFData: req.files.gameSWFFile.data
+    };
 
-  const userId = new UserId (req.params.id)
-  if (!UserId.isValid(req.params.id)) {
-    throw new Error("Invalid ID")
+    const result = await mongodb.getDb().db('portfolio').collection('game').replaceOne({ _id: userId }, game);
+    console.log(result);
+
+    if (result.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(500).json(result.error);
     }
-
-  const result = await mongodb.getDb().db('portfolio').collection('game').replaceOne({_id: userId}, game);
-  console.log(result);
-  if (result.modifiedCount > 0) {
-    res.status(204).send();
-  } 
-  else {
-    res.status(500).json(result.error)}
+  } catch (error) {
+    res.status(500).json({ message: "Your request was not able to be processed" });
   }
-  catch(error) {
-  
-      res.status(500).json({message : "Your request was not able to be processed"})
-      
-       
-      
-      }
-    }
+};
 
 
   const deleteGame = async (req, res, next) => {

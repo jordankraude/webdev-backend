@@ -319,7 +319,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new game",
         "parameters": [
           {
             "name": "body",
@@ -330,14 +330,17 @@
                 "gameName": {
                   "example": "any"
                 },
-                "gameSWFPath": {
-                  "example": "any"
-                },
                 "gameThumbnailPath": {
                   "example": "any"
                 },
                 "gameAlt": {
                   "example": "any"
+                },
+                "gameSWFFile": {
+                  "type": "file",
+                  "description": "The SWF file to upload for the game.",
+                  "example": "binary data",
+                  "required": true
                 }
               }
             }
@@ -345,14 +348,13 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Game created successfully."
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Error creating the game."
           }
         }
-      }
-    },
+      },
     "/game/{id}": {
       "get": {
         "description": "",
@@ -377,13 +379,14 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update an existing game",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the game to update.",
+            "required": true
           },
           {
             "name": "body",
@@ -394,14 +397,17 @@
                 "gameName": {
                   "example": "any"
                 },
-                "gameSWFPath": {
-                  "example": "any"
-                },
                 "gameThumbnailPath": {
                   "example": "any"
                 },
                 "gameAlt": {
                   "example": "any"
+                },
+                "gameSWFFile": {
+                  "type": "file",
+                  "description": "The updated SWF file for the game.",
+                  "example": "binary data",
+                  "required": true
                 }
               }
             }
@@ -409,10 +415,10 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Game updated successfully."
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Error updating the game."
           }
         }
       },
