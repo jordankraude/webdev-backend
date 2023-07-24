@@ -92,7 +92,7 @@ const getAllGraphics = async (req, res, next) => {
       throw new Error("Invalid ID")
       }
   
-    const result = await mongodb.getDb().db('portfolio').collection('storeItem').replaceOne({_id: graphicId}, graphic);
+    const result = await mongodb.getDb().db('portfolio').collection('graphicDesigns').replaceOne({_id: graphicId}, graphic);
     console.log(result);
     if (result.modifiedCount > 0) {
       res.status(204).send();
