@@ -23,11 +23,11 @@ const getAllGraphics = async (req, res, next) => {
   const getGraphic = async (req, res, next) => { 
     try {
   
-      const graphicId = new UserId (req.params.id)
-      if (!graphicId.isValid(req.params.id)) {
+      const userId = new UserId (req.params.id)
+      if (!UserId.isValid(req.params.id)) {
         throw new Error("Invalid ID")
        }
-      const result = await mongodb.getDb().db('portfolio').collection('graphicDesigns').find({_id: graphicId});
+      const result = await mongodb.getDb().db('portfolio').collection('graphicDesigns').find({_id: userId});
       result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(lists[0]);
@@ -87,8 +87,8 @@ const getAllGraphics = async (req, res, next) => {
         pdfFile: pdfData,
       };
   
-      const graphicId = new UserId(req.params.id);
-      if (!graphicId.isValid(req.params.id)) {
+      const userId = new UserId(req.params.id);
+      if (!UserId.isValid(req.params.id)) {
         throw new Error("Invalid ID");
       }
   
@@ -96,7 +96,7 @@ const getAllGraphics = async (req, res, next) => {
         .getDb()
         .db('portfolio')
         .collection('graphicDesigns')
-        .replaceOne({ _id: graphicId }, graphic);
+        .replaceOne({ _id: userId }, graphic);
   
       console.log(result);
       if (result.modifiedCount === 1) {
@@ -113,11 +113,11 @@ const getAllGraphics = async (req, res, next) => {
   
     const deleteGraphic = async (req, res, next) => {
       try{
-      const graphicId = new UserId(req.params.id);
-      if (!graphicId.isValid(req.params.id)) {
+      const userId = new UserId(req.params.id);
+      if (!UserId.isValid(req.params.id)) {
         throw new Error("Invalid ID")
        }
-      const result = await mongodb.getDb().db('portfolio').collection('graphicDesigns').deleteOne({ _id: graphicId }, true);
+      const result = await mongodb.getDb().db('portfolio').collection('graphicDesigns').deleteOne({ _id: userId }, true);
       console.log(result);
       if (result.deletedCount > 0) {
         res.status(204).send();

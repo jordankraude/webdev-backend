@@ -9,7 +9,7 @@ const upload = multer()
 router.get('/',  contactsController.getAllGraphics);
 router.get('/:id',  contactsController.getGraphic);
 router.post('/', upload.single('pdfFile'), contactsController.createNewGraphic);
-router.put('/:id', contactsController.updateGraphic);
+router.put('/:id', upload.single('pdfFile'), contactsController.updateGraphic);
 router.delete('/:id', contactsController.deleteGraphic);
 
 module.exports = router;
