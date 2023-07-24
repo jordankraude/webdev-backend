@@ -46,7 +46,7 @@ const getGame = async (req, res, next) => {
 
 const createNewGame = async (req, res, next) => {
   try {
-    if (!req.body.gameName || !req.body.gameThumbnailPath || !req.body.gameAlt || !req.files || !req.files.gameSWFFile) {
+    if (!req.body.gameName || !req.body.gameThumbnailPath || !req.body.gameAlt || !req.body.gameSWFName || !req.files || !req.files.gameSWFFile) {
       throw new Error("Invalid Form Data");
     }
 
@@ -54,6 +54,7 @@ const createNewGame = async (req, res, next) => {
       gameName: req.body.gameName,
       gameThumbnailPath: req.body.gameThumbnailPath,
       gameAlt: req.body.gameAlt,
+      gameSWFName: req.body.gameSWFName,
       gameSWFData: req.files.gameSWFFile.data
     };
 
@@ -72,7 +73,7 @@ const createNewGame = async (req, res, next) => {
 
 const updateGame = async (req, res, next) => {
   try {
-    if (!req.body.gameName || !req.body.gameThumbnailPath || !req.body.gameAlt || !req.files || !req.files.gameSWFFile) {
+    if (!req.body.gameName || !req.body.gameThumbnailPath || !req.body.gameAlt || !req.body.gameSWFName || !req.files || !req.files.gameSWFFile) {
       throw new Error("Invalid Form Data");
     }
 
@@ -85,6 +86,7 @@ const updateGame = async (req, res, next) => {
       gameName: req.body.gameName,
       gameThumbnailPath: req.body.gameThumbnailPath,
       gameAlt: req.body.gameAlt,
+      gameSWFName: req.body.gameSWFName,
       gameSWFData: req.files.gameSWFFile.data
     };
 

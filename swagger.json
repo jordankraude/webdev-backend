@@ -346,6 +346,13 @@
             "required": true
           },
           {
+            "name": "gameSWFName",
+            "in": "formData",
+            "type": "string",
+            "description": "The SWF file name",
+            "required": true
+          },
+          {
             "name": "gameSWFFile",
             "in": "formData",
             "type": "file",
@@ -415,6 +422,13 @@
             "in": "formData",
             "type": "string",
             "description": "The alternative text for the game thumbnail image.",
+            "required": true
+          },
+          {
+            "name": "gameSWFName",
+            "in": "formData",
+            "type": "string",
+            "description": "The SWF file name",
             "required": true
           },
           {
