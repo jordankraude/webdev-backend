@@ -46,7 +46,7 @@ const getGame = async (req, res, next) => {
 
 const createNewGame = async (req, res, next) => {
   try {
-    if (!req.body.gameName || !req.body.gameThumbnailPath || !req.body.gameAlt || !req.body.gameSWFName || !req.files || !req.files.gameSWFFile) {
+    if (!req.body.gameName || !req.body.gameThumbnailPath || !req.body.gameAlt || !req.body.gameSWFName) {
       throw new Error("Invalid Form Data");
     }
 
@@ -55,7 +55,6 @@ const createNewGame = async (req, res, next) => {
       gameThumbnailPath: req.body.gameThumbnailPath,
       gameAlt: req.body.gameAlt,
       gameSWFName: req.body.gameSWFName,
-      gameSWFData: req.files.gameSWFFile.data
     };
 
     const result = await mongodb.getDb().db('portfolio').collection('game').insertOne(game);
@@ -73,7 +72,7 @@ const createNewGame = async (req, res, next) => {
 
 const updateGame = async (req, res, next) => {
   try {
-    if (!req.body.gameName || !req.body.gameThumbnailPath || !req.body.gameAlt || !req.body.gameSWFName || !req.files || !req.files.gameSWFFile) {
+    if (!req.body.gameName || !req.body.gameThumbnailPath || !req.body.gameAlt || !req.body.gameSWFName) {
       throw new Error("Invalid Form Data");
     }
 
@@ -87,7 +86,6 @@ const updateGame = async (req, res, next) => {
       gameThumbnailPath: req.body.gameThumbnailPath,
       gameAlt: req.body.gameAlt,
       gameSWFName: req.body.gameSWFName,
-      gameSWFData: req.files.gameSWFFile.data
     };
 
     const result = await mongodb.getDb().db('portfolio').collection('game').replaceOne({ _id: userId }, game);
