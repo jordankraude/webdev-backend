@@ -320,30 +320,37 @@
       },
       "post": {
         "description": "Create a new game",
+        "consumes": [
+          "multipart/form-data"
+        ],
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "gameName": {
-                  "example": "any"
-                },
-                "gameThumbnailPath": {
-                  "example": "any"
-                },
-                "gameAlt": {
-                  "example": "any"
-                },
-                "gameSWFFile": {
-                  "type": "file",
-                  "description": "The SWF file to upload for the game.",
-                  "example": "binary data",
-                  "required": true
-                }
-              }
-            }
+            "name": "gameName",
+            "in": "formData",
+            "type": "string",
+            "description": "The name of the game.",
+            "required": true
+          },
+          {
+            "name": "gameThumbnailPath",
+            "in": "formData",
+            "type": "string",
+            "description": "The path to the game thumbnail image.",
+            "required": true
+          },
+          {
+            "name": "gameAlt",
+            "in": "formData",
+            "type": "string",
+            "description": "The alternative text for the game thumbnail image.",
+            "required": true
+          },
+          {
+            "name": "gameSWFFile",
+            "in": "formData",
+            "type": "file",
+            "description": "The SWF file to upload for the game.",
+            "required": true
           }
         ],
         "responses": {
@@ -377,7 +384,8 @@
             "description": "Internal Server Error"
           }
         }
-      },
+      }
+    },
       "put": {
         "description": "Update an existing game",
         "parameters": [
@@ -389,28 +397,32 @@
             "required": true
           },
           {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "gameName": {
-                  "example": "any"
-                },
-                "gameThumbnailPath": {
-                  "example": "any"
-                },
-                "gameAlt": {
-                  "example": "any"
-                },
-                "gameSWFFile": {
-                  "type": "file",
-                  "description": "The updated SWF file for the game.",
-                  "example": "binary data",
-                  "required": true
-                }
-              }
-            }
+            "name": "gameName",
+            "in": "formData",
+            "type": "string",
+            "description": "The name of the game.",
+            "required": true
+          },
+          {
+            "name": "gameThumbnailPath",
+            "in": "formData",
+            "type": "string",
+            "description": "The path to the game thumbnail image.",
+            "required": true
+          },
+          {
+            "name": "gameAlt",
+            "in": "formData",
+            "type": "string",
+            "description": "The alternative text for the game thumbnail image.",
+            "required": true
+          },
+          {
+            "name": "gameSWFFile",
+            "in": "formData",
+            "type": "file",
+            "description": "The updated SWF file for the game.",
+            "required": true
           }
         ],
         "responses": {
@@ -421,7 +433,7 @@
             "description": "Error updating the game."
           }
         }
-      },
+      },      
       "delete": {
         "description": "",
         "parameters": [
@@ -614,6 +626,5 @@
         }
       }
     }
-  }
   }
 }
