@@ -3,14 +3,20 @@ const app = express();
 const port = process.env.PORT || 8000;
 const mongodb = require("./db/connect.js");
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload'); // Import express-fileupload
 
-app
-  .use(bodyParser.json())
-  .use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    next();
-  })
-  .use("/", require("./routes"));
+// Add the express-fileupload middleware
+app.use(fileUpload());
+
+// Set up other middleware and configurations
+app.use(bodyParser.json());
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
+
+// Set up routes
+app.use("/", require("./routes"));
 
 mongodb.initDb((err, mongodb) => {
   if (err) {
