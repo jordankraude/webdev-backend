@@ -86,35 +86,43 @@
         "description": "",
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any",
-                  "required": true
-                },
-                "lastName": {
-                  "example": "any",
-                  "required": true
-                },
-                "email": {
-                  "example": "any",
-                  "required": true
-                },
-                "feedback": {
-                  "example": "any",
-                  "required": true
-                },
-                "likeResponse": {
-                  "example": "any",
-                  "required": true
-                }
-              }
+            "firstName": {
+              "in": "formData",
+              "type": "string",
+              "example": "any",
+              "required": true
+
+            },
+            "lastName": {
+              "in": "formData",
+              "type": "string",
+              "example": "any",
+              "required": true
+            },
+            "email": {
+              "in": "formData",
+              "type": "string",
+              "example": "any",
+              "required": true
+            },
+            "feedback": {
+              "in": "formData",
+              "type": "string",
+              "example": "any",
+              "required": true
+            },
+            "likeResponse": {
+              "in": "formData",
+              "type": "string",
+              "example": "any",
+              "required": true,
+              "enum": ["Yes", "No"]
+                
+              
             }
           }
         ],
+        "consumes": ["multipart/form-data"],
         "responses": {
           "201": {
             "description": "Created"

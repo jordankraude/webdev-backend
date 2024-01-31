@@ -72,7 +72,7 @@ const validateReviewForm = (req, res, next) => {
     }
   
     // Validate wantResponse
-    if (!formData.wantResponse || (formData.wantResponse !== 'yes' && formData.wantResponse !== 'no')) {
+    if (!formData.wantResponse || (formData.wantResponse !== 'Yes' && formData.wantResponse !== 'No')) {
       errors.wantResponse = 'Please select whether you want a response';
     }
   
