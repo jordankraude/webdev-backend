@@ -2,10 +2,10 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'My API',
-    description: 'Store Api'
+    title: 'WebDev Forms API',
+    description: 'API to handle form submits from web developer page'
   },
-  host: 'portfolioapi-gsh3.onrender.com',
+  host: 'webdev-backend-n0v3.onrender.com',
   schemes: ['https']
 };
 
