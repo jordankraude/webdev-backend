@@ -5,7 +5,7 @@
     "description": "Store Api",
     "version": "1.0.0"
   },
-  "host": "portfolioapi-gsh3.onrender.com",
+  "host": "webdev-backend-n0v3.onrender.com/",
   "basePath": "/",
   "schemes": [
     "http"
