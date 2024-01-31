@@ -3,10 +3,7 @@ const app = express();
 const port = process.env.PORT || 8000;
 const mongodb = require("./db/connect.js");
 const bodyParser = require('body-parser');
-const fileUpload = require('express-fileupload'); // Import express-fileupload
 
-// Add the express-fileupload middleware
-app.use(fileUpload());
 
 // Set up other middleware and configurations
 app.use(bodyParser.json());
