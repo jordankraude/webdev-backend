@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const contactsController = require('../controllers/quoteRequest');
+const validate = require('../utilities/validator')
 const multer = require('multer');
 
 
@@ -18,7 +19,7 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer();
 
-router.post('/', upload.single('file'), contactsController.newQuoteRequest);
+router.post('/', upload.single('file'), validate.validateQuoteRequestForm, contactsController.newQuoteRequest);
 
 
 module.exports = router;
