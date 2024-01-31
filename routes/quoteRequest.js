@@ -7,7 +7,6 @@ const multer = require('multer');
 const storage = multer.memoryStorage(); // Use memory storage for file buffer
 
 const fileFilter = (req, file, cb) => {
-  // Accept only PDFs and image files (jpeg, jpg, png)
   const allowedMimeTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
 
   if (allowedMimeTypes.includes(file.mimetype)) {

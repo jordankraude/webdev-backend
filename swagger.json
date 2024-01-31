@@ -16,12 +16,13 @@
         "description": "",
         "parameters": [],
         "responses": {}
-      }
+      },
+
+  "consumes": ["multipart/form-data"]
     },
     "/quote-request/": {
       "post": {
         "description": "Submit a quote request with optional file upload",
-        "consumes": ["multipart/form-data"],
         "parameters": [
           {
             "name": "firstName",
