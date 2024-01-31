@@ -72,7 +72,8 @@ const validateReviewForm = (req, res, next) => {
     }
   
     // Validate wantResponse
-    if (!formData.wantResponse || (formData.wantResponse !== 'Yes' && formData.wantResponse !== 'No')) {
+    const validResponseOptions = ["Yes", "No"];
+    if (!formData.wantResponse || !validResponseOptions.includes(formData.wantResponse)) {
       errors.wantResponse = 'Please select whether you want a response';
     }
   
@@ -84,5 +85,7 @@ const validateReviewForm = (req, res, next) => {
       res.status(400).json({ errors });
     }
 };
+
+
 
 module.exports = { validateQuoteRequestForm, validateReviewForm };

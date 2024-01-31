@@ -117,7 +117,7 @@
             "name": "wantResponse",
             "in": "formData",
             "type": "string",
-            "example": "any",
+            "example": "Yes",
             "required": true,
             "enum": ["Yes", "No"]
           }
@@ -132,6 +132,6 @@
           }
         }
       }
-    }    
+    }
   }
 }
