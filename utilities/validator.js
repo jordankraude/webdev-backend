@@ -51,12 +51,12 @@ const validateReviewForm = (req, res, next) => {
     const errors = {};
   
     // Validate firstName
-    if (!formData.firstname || formData.firstname.trim() === '') {
+    if (!formData.firstName || formData.firstName.trim() === '') {
       errors.firstname = 'First name is required';
     }
   
     // Validate lastName
-    if (!formData.lastname || formData.lastname.trim() === '') {
+    if (!formData.lastName || formData.lastName.trim() === '') {
       errors.lastname = 'Last name is required';
     }
   

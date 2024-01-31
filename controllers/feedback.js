@@ -4,7 +4,7 @@ const mongodb = require ('../db/connect')
   
   const newReview = async (req, res, next) => {
     try {
-      if (!req.body.firstName || !req.body.lastName || !req.body.email || !req.body.feedback || !req.body.likeResponse) {
+      if (!req.body.firstName || !req.body.lastName || !req.body.email || !req.body.feedback || !req.body.wantResponse) {
         throw new Error("Empty Content or Missing File");
       }
 
@@ -13,7 +13,7 @@ const mongodb = require ('../db/connect')
         lastName: req.body.lastName,
         email: req.body.email,
         feedback: req.body.feedback,
-        likeResponse: req.body.likeResponse
+        wantResponse: req.body.wantResponse
       };
       
   
