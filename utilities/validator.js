@@ -1,4 +1,5 @@
-const validateQuoteRequestForm = (formData) => {
+const validateQuoteRequestForm = (req, res, next) => {
+    const formData = req.body;
     const errors = {};
   
     // Validate firstName
@@ -36,13 +37,17 @@ const validateQuoteRequestForm = (formData) => {
       errors.budget = 'Please select a valid budget option';
     }
   
-    return {
-      isValid: Object.keys(errors).length === 0,
-      errors,
-    };
-  };
+    if (Object.keys(errors).length === 0) {
+      // If there are no errors, call next to proceed to the next middleware or route handler
+      next();
+    } else {
+      // If there are errors, send a response with the error details
+      res.status(400).json({ errors });
+    }
+};
 
-const validateReviewForm = (formData) => {
+const validateReviewForm = (req, res, next) => {
+    const formData = req.body;
     const errors = {};
   
     // Validate firstName
@@ -71,11 +76,13 @@ const validateReviewForm = (formData) => {
       errors.wantResponse = 'Please select whether you want a response';
     }
   
-    // Return validation result
-    return {
-      isValid: Object.keys(errors).length === 0,
-      errors,
-    };
-  };
+    if (Object.keys(errors).length === 0) {
+      // If there are no errors, call next to proceed to the next middleware or route handler
+      next();
+    } else {
+      // If there are errors, send a response with the error details
+      res.status(400).json({ errors });
+    }
+};
 
-module.exports = {validateQuoteRequestForm, validateReviewForm}
+module.exports = { validateQuoteRequestForm, validateReviewForm };
