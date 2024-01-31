@@ -12,7 +12,7 @@ const newQuoteRequest = async (req, res, next) => {
       phoneNumber: req.body.phoneNumber,
       budget: req.body.budget,
       otherInfo: otherInfo,
-      file: fileData,
+      file: fileData
     };
 
     const db = mongodb.getDb().db('webdev-page');

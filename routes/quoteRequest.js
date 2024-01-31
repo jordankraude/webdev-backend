@@ -3,8 +3,8 @@ const router = express.Router();
 const contactsController = require('../controllers/quoteRequest');
 const multer = require('multer');
 
-// Configure multer for handling file uploads
-const storage = multer.memoryStorage(); // Use memory storage for file buffer
+
+const storage = multer.memoryStorage();
 
 const fileFilter = (req, file, cb) => {
   const allowedMimeTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
@@ -16,7 +16,7 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-const upload = multer({ storage: storage, fileFilter: fileFilter });
+const upload = multer();
 
 router.post('/', upload.single('file'), contactsController.newQuoteRequest);
 
