@@ -115,7 +115,6 @@
             }
           }
         ],
-        "consumes": ["multipart/form-data"],
         "responses": {
           "201": {
             "description": "Created"
