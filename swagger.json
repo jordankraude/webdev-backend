@@ -21,7 +21,6 @@
     "/quote-request/": {
       "post": {
         "description": "Submit a quote request with optional file upload",
-        "consumes": ["multipart/form-data"],
         "parameters": [
           {
             "name": "firstName",
@@ -67,10 +66,10 @@
           {
             "name": "file",
             "in": "formData",
-            "type": "file",
-            "description": "File to be uploaded"
+            "type": "file"
           }
         ],
+        "consumes": ["multipart/form-data"],
         "responses": {
           "201": {
             "description": "Created"
