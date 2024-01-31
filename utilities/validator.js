@@ -1,8 +1,3 @@
-
-
-
-
-
 const idRules = () => {
     return [
         param("/:id").isLength(24)
@@ -11,4 +6,4 @@ const idRules = () => {
 
 
 
-module.exports = {contactRules, contactsValidator, idRules}
+module.exports = { idRules}

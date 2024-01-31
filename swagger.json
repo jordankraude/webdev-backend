@@ -8,7 +8,7 @@
   "host": "portfolioapi-gsh3.onrender.com",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/api-docs": {
@@ -18,187 +18,57 @@
         "responses": {}
       }
     },
-    "/graphicDesign/": {
-      "get": {
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
+    "/quote-request/": {
       "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "graphicName",
-            "in": "formData",
-            "type": "string",
-            "example": "any"
-          },
-          {
-            "name": "graphicSummary",
-            "in": "formData",
-            "type": "string",
-            "example": "any"
-          },
-          {
-            "name": "graphicAlt",
-            "in": "formData",
-            "type": "string",
-            "example": "any"
-          },
-          {
-            "name": "pdfFile",
-            "in": "formData",
-            "type": "file"
-          }
-        ],
+        "description": "Submit a quote request with optional file upload",
         "consumes": ["multipart/form-data"],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/graphicDesign/{id}": {
-      "get": {
-        "description": "",
-        "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
+            "name": "firstName",
+            "in": "formData",
+            "type": "string",
+            "example": "any",
+            "required": true
           },
           {
-            "name": "graphicName",
+            "name": "lastName",
+            "in": "formData",
+            "type": "string",
+            "example": "any",
+            "required": true
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "example": "any",
+            "required": true
+          },
+          {
+            "name": "phoneNumber",
+            "in": "formData",
+            "type": "string",
+            "example": "any",
+            "required": true
+          },
+          {
+            "name": "budget",
+            "in": "formData",
+            "type": "string",
+            "example": "any",
+            "required": true
+          },
+          {
+            "name": "otherInfo",
             "in": "formData",
             "type": "string",
             "example": "any"
           },
           {
-            "name": "graphicSummary",
+            "name": "file",
             "in": "formData",
-            "type": "string",
-            "example": "any"
-          },
-          {
-            "name": "graphicAlt",
-            "in": "formData",
-            "type": "string",
-            "example": "any"
-          },
-          {
-            "name": "pdfFile",
-            "in": "formData",
-            "type": "file"
-          }
-        ],
-        "consumes": ["multipart/form-data"],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/store/": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "itemName": {
-                  "example": "any"
-                },
-                "itemCost": {
-                  "example": "any"
-                },
-                "itemQuantityInStock": {
-                  "example": "any"
-                },
-                "vendorID": {
-                  "example": "any"
-                },
-                "vendorLocation": {
-                  "example": "any"
-                },
-                "itemImagePath": {
-                  "example": "any"
-                },
-                "itemAlt": {
-                  "example": "any"
-                }
-              }
-            }
+            "type": "file",
+            "description": "File to be uploaded"
           }
         ],
         "responses": {
@@ -211,114 +81,7 @@
         }
       }
     },
-    "/store/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "itemName": {
-                  "example": "any"
-                },
-                "itemCost": {
-                  "example": "any"
-                },
-                "itemQuantityInStock": {
-                  "example": "any"
-                },
-                "vendorID": {
-                  "example": "any"
-                },
-                "vendorLocation": {
-                  "example": "any"
-                },
-                "itemImagePath": {
-                  "example": "any"
-                },
-                "itemAlt": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/game/": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
+    "/feedback/": {
       "post": {
         "description": "",
         "parameters": [
@@ -328,16 +91,19 @@
             "schema": {
               "type": "object",
               "properties": {
-                "gameName": {
+                "firstName": {
                   "example": "any"
                 },
-                "gameThumbnailPath": {
+                "lastName": {
                   "example": "any"
                 },
-                "gameAlt": {
+                "email": {
                   "example": "any"
                 },
-                "gameSWFName": {
+                "feedback": {
+                  "example": "any"
+                },
+                "likeResponse": {
                   "example": "any"
                 }
               }
@@ -347,223 +113,6 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/game/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "gameName": {
-                  "example": "any"
-                },
-                "gameThumbnailPath": {
-                  "example": "any"
-                },
-                "gameAlt": {
-                  "example": "any"
-                },
-                "gameSWFName": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/login/": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "userLoginName": {
-                  "example": "any"
-                },
-                "userPassword": {
-                  "example": "any"
-                },
-                "userEmail": {
-                  "example": "any"
-                },
-                "userPhoneNumber": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/login/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "userLoginName": {
-                  "example": "any"
-                },
-                "userPassword": {
-                  "example": "any"
-                },
-                "userEmail": {
-                  "example": "any"
-                },
-                "userPhoneNumber": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
           },
           "500": {
             "description": "Internal Server Error"

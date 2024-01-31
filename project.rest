@@ -59,14 +59,24 @@ content-type:application/json
 {"gameName": "1066", "gameSWFPath": "games/swfFiles/1066-45949cba.swf", "gameThumbnailPath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3GQhRUS2BSBLgXHskU3iBHT6qswseZCSBw8k70_OyjA&s", "gameAlt": "1066 Thumbnail"}
 
 ###
-POST http://localhost:8000/login HTTP/1.1
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email,
+          phoneNumber: req.body.phoneNumber,
+          budget: req.body.budget,
+          otherInfo: req.body.otherInfo,
+          file: fileData,
+          ###
+
+###
+POST http://localhost:8000/quote-request HTTP/1.1
 content-type:application/json
 
-{"userLoginName": "Jk1103269", "userPassword": "Pokemoncards1", "userEmail": "jordankraudetp@gmail.com", "userPhoneNumber": "2094952253"}
+{"firstName": "Jk1103269", "lastName": "Pokemoncards1", "email": "jordankraudetp@gmail.com", "phoneNumber": "2094952253", "budget": "20,000"}
 
 
 ###
-POST http://localhost:8000/store HTTP/1.1
+POST http://localhost:8000/feedback HTTP/1.1
 content-type:application/json
 
 {"itemName": "Ski Jacket", "itemCost": "20.00", "itemQuantityInStock": "1", "vendorID": "N/A", "vendorLocation": "Rexburg, Idaho", "itemImagePath": "...", "itemAlt": "Ski Jacket"}
