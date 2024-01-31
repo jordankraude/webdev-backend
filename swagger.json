@@ -86,40 +86,40 @@
         "description": "",
         "parameters": [
           {
-            "firstName": {
-              "in": "formData",
-              "type": "string",
-              "example": "any",
-              "required": true
-
-            },
-            "lastName": {
-              "in": "formData",
-              "type": "string",
-              "example": "any",
-              "required": true
-            },
-            "email": {
-              "in": "formData",
-              "type": "string",
-              "example": "any",
-              "required": true
-            },
-            "feedback": {
-              "in": "formData",
-              "type": "string",
-              "example": "any",
-              "required": true
-            },
-            "likeResponse": {
-              "in": "formData",
-              "type": "string",
-              "example": "any",
-              "required": true,
-              "enum": ["Yes", "No"]
-                
-              
-            }
+            "name": "firstName",
+            "in": "formData",
+            "type": "string",
+            "example": "any",
+            "required": true
+          },
+          {
+            "name": "lastName",
+            "in": "formData",
+            "type": "string",
+            "example": "any",
+            "required": true
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "example": "any",
+            "required": true
+          },
+          {
+            "name": "feedback",
+            "in": "formData",
+            "type": "string",
+            "example": "any",
+            "required": true
+          },
+          {
+            "name": "likeResponse",
+            "in": "formData",
+            "type": "string",
+            "example": "any",
+            "required": true,
+            "enum": ["Yes", "No"]
           }
         ],
         "consumes": ["multipart/form-data"],
@@ -132,6 +132,6 @@
           }
         }
       }
-    }
+    }    
   }
 }
