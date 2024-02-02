@@ -19,7 +19,7 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer();
 
-router.post('/', upload.single('file'), validate.validateQuoteRequestForm, contactsController.newQuoteRequest);
+router.post('/', upload.single('fileData'), validate.validateQuoteRequestForm, contactsController.newQuoteRequest);
 
 
 module.exports = router;
