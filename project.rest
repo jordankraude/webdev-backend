@@ -1,5 +1,5 @@
 
-POST http://localhost:8000/quote-request HTTP/1.1
+POST https://webdev-backend-n0v3.onrender.com/quote-request HTTP/1.1
 content-type:application/json
 
 {
@@ -7,18 +7,18 @@ content-type:application/json
     "lastName": "Pokemoncards1", 
     "email": "jordankraudetp@gmail.com", 
     "phoneNumber": "2094952253", 
-    "budget": "20,000"
+    "budget": "$5,000 - $10,000"
 }
 
 
 ###
-POST http://localhost:8000/feedback HTTP/1.1
+POST https://webdev-backend-n0v3.onrender.com/feedback/ HTTP/1.1
 content-type:application/json
 
 {
   "firstName": "Jordan",
   "lastName": "Kraude",
   "email": "jordankraudetp@gmail.com",
-  "feedback": "I hate this company",
-  "likeResponse": "No"
+  "feedback": "I hate this compan",
+  "wantResponse": "No"
 }

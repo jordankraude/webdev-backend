@@ -3,14 +3,11 @@ const app = express();
 const port = process.env.PORT || 8000;
 const mongodb = require("./db/connect.js");
 const bodyParser = require('body-parser');
-
+const cors = require('cors'); // Import the cors middleware
 
 // Set up other middleware and configurations
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  next();
-});
+app.use(cors()); // Use cors middleware to handle CORS headers
 
 // Set up routes
 app.use("/", require("./routes"));
